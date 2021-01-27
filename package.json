@@ -7,7 +7,7 @@
     },
     "author": "vinhmai <vinhmai079@gmail.com>",
     "license": "MIT",
-    "homepage": "https://github.com/xaunvih/react-window-technique",
+    "homepage": ".",
     "dependencies": {
         "@types/node": "^12.0.0",
         "@types/react": "^16.9.53",
