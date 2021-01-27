@@ -1,0 +1,29 @@
+body {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+
+    #root {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+
+        .grid-container {
+            height: 80vh;
+            width: 80vw;
+            overflow: auto;
+            border: 1px solid #aaa;
+
+            .grid-content {
+                position: relative;
+
+                .cell-item {
+                    background-color: gray;
+                    border: 1px solid #333;
+                }
+            }
+        }
+    }
+}
