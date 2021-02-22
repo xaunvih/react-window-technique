@@ -8,7 +8,6 @@ interface IProps {
 }
 
 function Grid(props: IProps): JSX.Element {
-    const containerRef = React.useRef<HTMLDivElement>(null!)
     const [coordinate, setCoordinate] = React.useState({
         x: 0,
         y: 0,
@@ -24,8 +23,9 @@ function Grid(props: IProps): JSX.Element {
         height: `${props.cellHeight * props.rowCount}px`,
     }
 
-    React.useEffect((): void => {
-        const { clientWidth, clientHeight } = containerRef.current
+    // React will call that callback whenever the ref gets attached to a different node
+    const updateSize = React.useCallback((ref): void => {
+        const { clientWidth, clientHeight } = ref
         setContainerMeta({
             width: clientWidth,
             height: clientHeight,
@@ -74,7 +74,7 @@ function Grid(props: IProps): JSX.Element {
     }
 
     return (
-        <div className="grid-container" onScroll={onScroll} ref={containerRef}>
+        <div className="grid-container" onScroll={onScroll} ref={updateSize}>
             <div className="grid-content" style={gridContentStyle}>
                 {renderCells()}
             </div>
